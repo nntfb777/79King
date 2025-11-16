@@ -652,6 +652,73 @@ ul li {
 		grid-template-columns: auto auto;
 	}
 
+
+	#main-social {
+	        width: 100%;
+        	max-width: 100%;
+        	box-sizing: border-box;
+        /* Giảm padding để phù hợp với di động */
+        	padding: 1px 0px; 
+    	}
+.social-links-container {
+        display: flex; 
+        flex-wrap: wrap; /* Cho phép xuống dòng */
+        
+        /* Chuyển sang space-around để phân bổ đều không cần gap */
+        justify-content: space-around; 
+        
+        /* Loại bỏ gap */
+        gap: 0; 
+        padding: 0;
+        margin: 0;
+    }
+
+    /* 🎯 1. Chiều rộng cho 3 item đầu tiên (Hàng 3 cột) */
+    .social-item:nth-child(-n+3) {
+        /* Đặt chiều rộng dựa trên tỷ lệ */
+        width: 25%; /* 32% x 3 = 96%. Dùng width để ép chúng xếp ngang */
+        flex-basis: auto;
+        
+        /* Loại bỏ padding và margin bên trong */
+        padding: 8px 0; 
+        margin: 0 0 1px 0; /* Chỉ giữ margin dưới để tạo khoảng cách giữa 2 hàng */
+        border-width: 0;
+    }
+    
+    /* 🎯 2. Chiều rộng cho 2 item cuối (Hàng 2 cột) */
+    .social-item:nth-child(n+4) {
+        /* Đặt chiều rộng dựa trên tỷ lệ */
+        width: 25%; /* 48% x 2 = 96%. Dùng width để ép chúng xếp ngang */
+        flex-basis: auto;
+        
+        /* Loại bỏ padding và margin bên trong */
+        padding: 8px 0; 
+        margin: 0 0 5px 0;
+        border-width: 0;
+    }
+
+    /* 3. Đảm bảo chữ và icon cực kỳ nhỏ và không tràn */
+    .social-item img {
+        width: 10px; /* Giảm kích thước icon xuống 25px */
+        height: 10px;
+        margin-bottom: 2px; 
+    }
+    
+    .social-item span {
+        font-size: 5px; /* Giảm kích thước chữ xuống 8px (rất nhỏ) */
+        /* Giữ nguyên thuộc tính cắt chữ (ellipsis) */
+        white-space: wrap; 
+        overflow: visible; 
+        text-overflow: initial; 
+    }
+    
+    /* Loại bỏ padding trong thẻ <a> (nếu có) */
+    .social-item a {
+        padding: 0;
+    }
+}
+
+
 	#footer {
 		bottom: 0;
 	}
@@ -735,6 +802,106 @@ ul li {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 50%;
     opacity: 0.7; 
+}
+
+#container-social {
+    /* Đảm bảo khối này không có padding top không cần thiết */
+    padding: 0; 
+}
+
+#main-social {
+    width: 1000px !important; 
+    max-width: 100%; 
+	margin: 10px auto 10px; 
+	position: relative;
+    
+	border: 1px solid #671623 !important; 
+	background-color: #8cd0cf; 
+    
+    box-sizing: border-box; 
+    overflow: hidden;
+    padding: 22px 13px 22px 20px; }
+
+
+#main-social h2 {
+    width: fit-content;
+    margin: 0 auto 20px auto;
+    padding: 0; 
+    display: block;
+    text-align: center;
+    border-bottom: 1px dotted #671623;
+     padding-bottom: 10px;
+}
+#main-social h2 img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Khối liên kết */
+.social-links-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+
+.social-item {
+    flex-basis: 33%; /* Chia đều 3 cột */
+    text-align: center;
+    padding: 15px 10px;
+    border-radius: 8px;
+    background-color: #5fa78e; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+}
+
+.social-item a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.social-item img {
+    width: 70px; /* Tăng kích thước icon lên một chút */
+    height: 70px;
+    margin-bottom: 8px;
+    border-radius: 50%;
+    border: 3px solid #ff0; /* Đường viền vàng nổi bật xung quanh icon */
+    background-color: #fff; /* Nền trắng cho icon để nổi bật hơn */
+    object-fit: cover;/* Dùng 'cover' hoặc 'contain'. 'cover' sẽ lấp đầy 70x70px */
+    transition: transform 0.3s;
+}
+
+.social-item:hover {
+    background-color: #ff0000;
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Định kiểu chữ bên dưới icon */
+.social-item span {
+	display: block;
+    font-size: 16px;
+    font-weight: 700; /* Chữ đậm hơn */
+    color: #fefd5f;
+    text-shadow: 1px 1px 2px #000000; /* Đổ bóng chữ nhẹ */
+	margin-top: 5px;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(254, 143, 33, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(254, 143, 33, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(254, 143, 33, 0);
+    }
 }
 
 
