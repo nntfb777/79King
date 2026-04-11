@@ -23,6 +23,11 @@
                 "https://79k07.club/", 
                 "https://79k08.club/", 
                 "https://79k09.club/",
+                "https://79k-791.club/",
+                "https://79k-797.club/",
+                "https://79k-795.club/",
+                "https://79k-794.club/",
+                "https://79k-790.club/",
         ],
 
             urls: [],
