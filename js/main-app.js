@@ -91,7 +91,7 @@ var app = new Vue({
         const fakeMs = Math.floor(Math.random() * (9 - 3 + 1)) + 3;
         return {
           url: url,
-          title: `Link Sa Pag-access ${index + 1}`,
+          title: `Link truy cập ${index + 1}`,
           second: fakeMs + 'ms',
           time: fakeMs
         };
