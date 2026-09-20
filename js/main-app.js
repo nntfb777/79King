@@ -1,5 +1,5 @@
-// js/main-app.js 
-const { createApp } = Vue;
+// js/main-app.js
+const { createApp, h } = Vue;
 
 createApp({
   data() {
@@ -17,7 +17,7 @@ createApp({
         telegramUrl: "https://telegram.me/vuanhacai_79king",
         dailyTelegramUrl: "https://telegram.me/CSKH24H79KING",
         facebookUrl: "https://www.facebook.com/79kingThegioigiaitriso1/",
-        agentLoginUrl: "http://fc.79king.auction/",
+        agentLoginUrl: "https://fc.79king.auction/",
         giftcodeUrl: "https://79kingcode.pages.dev/"
       },
       banners: [
@@ -128,5 +128,22 @@ createApp({
         window.location.href = this.pcUrl || "https://79king.com";
       }
     }
+  },
+  render() {
+    return h('div', [
+      h('div', { class: 'refresh' }, [
+        h('a', { onClick: this.refresh }, 'TẢI LẠI')
+      ]),
+      h('ul', { class: 'link-list' }, 
+        this.urls.map(item => 
+          h('li', { key: item.url }, [
+            h('a', { href: item.url, target: '_blank' }, [
+              h('span', item.title),
+              h('span', { class: 'ms' }, item.second)
+            ])
+          ])
+        )
+      )
+    ]);
   }
 }).mount('#app');
