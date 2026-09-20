@@ -1,34 +1,35 @@
-var app = new Vue({
-  el: '#app',
-  data: {
-    timeHanlde: null,
-    tim: 0,
-    masterUrls: [],
-    urls: [],
-    moburls: [],
-    waitingText: "waiting",
-    connectTimeout: "connect Timeout",
-    connectFail: '3ms',
-    name: '79king.com/',
-    kefuUrl: "",
-    apkAppUrl: "",
-    pcUrl: "",
-    socialLinks: {
-      telegramUrl: "https://telegram.me/vuanhacai_79king",
-      dailyTelegramUrl: "https://telegram.me/CSKH24H79KING",
-      facebookUrl: "https://www.facebook.com/79kingThegioigiaitriso1/",
-      agentLoginUrl: "http://fc.79king.auction/",
-      giftcodeUrl: "https://79kingcode.pages.dev/"
-    },
-    banners: [
-      "/images/banner/1.jpg",
-      "/images/banner/2.jpg",
-      "/images/banner/3.jpg",
-      "/images/banner/4.jpg",
-      "/images/banner/5.jpg",
-      "/images/banner/6.jpg"
-    ],
-    apiUrl: "https://linksbackend.nnt79g.workers.dev/api/admin/links?site_id=79king"
+// js/main-app.js 
+const { createApp } = Vue;
+
+createApp({
+  data() {
+    return {
+      timeHanlde: null,
+      tim: 0,
+      masterUrls: [],
+      urls: [],
+      moburls: [],
+      name: '79king.com/',
+      kefuUrl: "",
+      apkAppUrl: "",
+      pcUrl: "",
+      socialLinks: {
+        telegramUrl: "https://telegram.me/vuanhacai_79king",
+        dailyTelegramUrl: "https://telegram.me/CSKH24H79KING",
+        facebookUrl: "https://www.facebook.com/79kingThegioigiaitriso1/",
+        agentLoginUrl: "http://fc.79king.auction/",
+        giftcodeUrl: "https://79kingcode.pages.dev/"
+      },
+      banners: [
+        "/images/banner/1.jpg",
+        "/images/banner/2.jpg",
+        "/images/banner/3.jpg",
+        "/images/banner/4.jpg",
+        "/images/banner/5.jpg",
+        "/images/banner/6.jpg"
+      ],
+      apiUrl: "https://linksbackend.nnt79g.workers.dev/api/admin/links?site_id=79king"
+    }
   },
   computed: {
     groupedBanners() {
@@ -51,10 +52,8 @@ var app = new Vue({
       try {
         const res = await fetch(this.apiUrl);
         const result = await res.json();
-
         if (result.success && result.data) {
           const data = result.data;
-
           const kefu = data.find(i => i.key_name === 'kefuUrl');
           const apk = data.find(i => i.key_name === 'apkAppUrl');
           const pc = data.find(i => i.key_name === 'pcUrl');
@@ -99,8 +98,6 @@ var app = new Vue({
     },
     startPingCheck() {
       if (this.timeHanlde) clearInterval(this.timeHanlde);
-
-      // Nhảy ms ngẫu nhiên từ 3ms đến 9ms liên tục mỗi 1.5 giây
       this.timeHanlde = setInterval(() => {
         if (this.urls && this.urls.length > 0) {
           this.urls.forEach(item => {
@@ -123,42 +120,13 @@ var app = new Vue({
       this.moburls = this.getRandomUrls(5);
       this.startPingCheck();
     },
-    sortOrder(filed, type = 'asc') {
-      return (a, b) => {
-        if (type === 'asc') return a[filed] > b[filed] ? 1 : -1;
-        return a[filed] > b[filed] ? -1 : 1;
-      };
-    },
-    sortList() {
-      this.urls.sort(this.sortOrder('time', 'asc'));
-      this.moburls.sort(this.sortOrder('time', 'asc'));
-    },
     down() {
-      if (this.browserDetection() == 'PC') {
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      if (isMobile) {
+        window.location.href = this.apkAppUrl || "https://79k09.club/DownloadApp/";
+      } else {
         window.location.href = this.pcUrl || "https://79king.com";
-      } else {
-        if (this.browserDetection() == 'iphone' || this.browserDetection() == 'ipad') {
-          window.location.href = this.apkAppUrl || "https://79k09.club/DownloadApp/";
-        } else {
-          window.location.href = this.apkAppUrl || "https://79k09.club/DownloadApp/";
-        }
       }
-    },
-    browserDetection() {
-      var userAgent = window.navigator.userAgent.toLowerCase();
-      var browser = null;
-      if (userAgent.match(/ipad/i)) {
-        browser = 'ipad';
-      } else if (userAgent.match(/iphone os/i)) {
-        browser = 'iphone';
-      } else if (userAgent.match(/midp/i)) {
-        browser = 'midp';
-      } else if (userAgent.match(/android/i)) {
-        browser = 'android';
-      } else {
-        browser = 'PC';
-      }
-      return browser;
     }
   }
-});
+}).mount('#app');
