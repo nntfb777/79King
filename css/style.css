@@ -207,6 +207,14 @@ ul li {
     transform: translateX(-50%);
 }
 
+#main h2 img,
+#banner-pc-list h2 img,
+#main-social h2 img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
 #conts .linkUl {
     margin-bottom: 10px;
 }
@@ -292,20 +300,6 @@ ul li {
     color: #8cd0cf;
     font-size: 14px;
     text-align: center;
-}
-
-.socials, 
-.socials a {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.socials img {
-    width: 150px;
-    height: 40px;
-    margin-right: 5px;
 }
 
 #main #sideBar {
@@ -712,10 +706,6 @@ ul li {
     font-size: 20px;
 }
 
-#banner-pc-list h2 img {
-    display: block;
-}
-
 .double-banner-group {
     display: flex !important;
     gap: 10px;
@@ -776,12 +766,6 @@ ul li {
     border-bottom: 1px dotted #671623;
     padding-bottom: 10px;
     font-size: 20px;
-}
-
-#main-social h2 img {
-    max-width: 100%;
-    height: auto;
-    display: block;
 }
 
 .social-links-container {
