@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Khai báo sitemap nếu bạn có (tùy chọn)
+# Sitemap: https://79king.ai/sitemap.xml
