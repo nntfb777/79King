@@ -28,19 +28,12 @@ body {
 html, body {
     height: 100vh;
     margin: 0;
+    overflow-x: hidden;
 }
 
 #app {
     display: flex;
     flex-direction: column;
-}
-
-#container {
-    flex-grow: 1;
-}
-
-#footer {
-    margin-top: auto;
 }
 
 ul li {
@@ -53,28 +46,6 @@ ul li {
     height: 0;
     clear: both;
     visibility: hidden;
-}
-
-.sjbdmap, 
-.pcbdmap, 
-#container, 
-#containerlow {
-    display: none;
-}
-
-@media (min-width: 768px) {
-    .pcbdmap {
-        display: block !important;
-    }
-    #container {
-        display: block !important;
-    }
-    #containerlow {
-        display: block !important;
-    }
-    #container2 {
-        display: none !important;
-    }
 }
 
 #header {
@@ -374,7 +345,7 @@ ul li {
     clear: both;
     background-color: #8cd0cf;
     border-top: 1px solid #bc3555;
-    bottom: 0;
+    margin-top: auto;
     flex-direction: row;
     flex-wrap: wrap;
     align-content: center;
@@ -460,24 +431,11 @@ ul li {
     text-shadow: 0 0 2px #ff0;
 }
 
-@keyframes animate {
-    from {
-        background-position: 0;
-    }
-    to {
-        background-position: 0 450px;
-    }
-}
-
 .box-btn-redirect {
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-}
-
-#containerlow {
-    padding: 0;
 }
 
 #mainlow {
@@ -618,130 +576,91 @@ ul li {
     margin-top: 5px;
 }
 
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(254, 143, 33, 0.4);
-    }
-    70% {
-        box-shadow: 0 0 0 10px rgba(254, 143, 33, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(254, 143, 33, 0);
-    }
+/* ------------------------------------------------------------- */
+/* 1. MẶC ĐỊNH (MOBILE-FIRST): HIỂN THỊ CÁC KHỐI MOBILE, ẨN KHỐI PC */
+/* ------------------------------------------------------------- */
+.sjbdmap {
+    display: block;
+    margin-bottom: 5px;
 }
 
-@media screen and (max-width: 1024px) {
+.sjbdmap .carousel-inner {
+    aspect-ratio: 2 / 1;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.sjbdmap .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#container2 {
+    display: block;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* Các khối của PC sẽ bị ẩn trên di động */
+#container, 
+#containerlow {
+    display: none;
+}
+
+
+/* ------------------------------------------------------------- */
+/* 2. MEDIA QUERY CHO MÁY TÍNH (PC): MÀN HÌNH >= 768px             */
+/* ------------------------------------------------------------- */
+@media (min-width: 768px) {
+    /* Ẩn hoàn toàn carousel mobile và container2 trên PC */
+    .sjbdmap, 
+    #container2 {
+        display: none !important;
+    }
+
+    /* Hiển thị các khối của PC */
+    #container, 
+    #containerlow {
+        display: block !important;
+    }
+
     #main, 
     #header .hBox, 
     #header .hInner, 
     #footer .fBox {
-        max-width: 100%;
+        max-width: 1000px;
     }
 }
 
-@media screen and (max-width: 1023.98px) {
-    html, body {
-        overflow-x: hidden;
-    }
-    #container, 
-    #container2, 
-    #containerlow {
-        width: 100%;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-    #main #sideBar h2, 
-    .img-download-app {
-        display: none;
-    }
-    #main #conts {
-        width: 100%;
-    }
-    #main #conts:before {
-        border: none;
-    }
-    #header .logo img {
-        width: 250px;
-    }
-    #conts .linkUl li {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 10px;
-    }
-    #main #sideBar {
-        width: 100%;
-        padding: 0 0 20px;
-    }
-    .link-download-app {
-        margin-top: 0;
-        width: 100%;
-    }
-    .link-download-app::before {
-        height: 1125%;
-    }
-    #header .hInner h1 {
-        font-size: 20px;
-        padding: 10px;
-        text-align: center;
-    }
-    #conts .linkUl li span {
-        padding: 7px;
-        font-size: 24px;
-        width: 50%;
-    }
-    #conts .linkUl li a {
-        height: 50px;
-        background-size: cover;
-        font-size: 22px;
-    }
-    #conts .linkUl li .txt, 
-    #conts .linkUl li a {
-        width: 20%;
-    }
-    #footer p {
-        font-size: 20px;
-    }
-    .link-download-app .content {
-        padding: 20px;
-    }
-    .link-download-app h3 {
-        font-size: 20px;
-    }
-}
 
+/* ------------------------------------------------------------- */
+/* 3. ĐIỀU CHỈNH CHI TIẾT GIAO DIỆN DI ĐỘNG (MAX-WIDTH: 767.98px)  */
+/* ------------------------------------------------------------- */
 @media screen and (max-width: 767.98px) {
     #app {
         height: fit-content !important;
     }
-    .sjbdmap {
-        display: block !important;
-        margin-bottom: 5px;
-    }
-    .sjbdmap .carousel-inner {
-        aspect-ratio: 2 / 1;
-        overflow: hidden;
-        border-radius: 5px;
-    }
-    .sjbdmap .carousel-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+
     #header .logo {
         width: 45%;
         height: 45%;
     }
+
     #header {
         padding: 5px 0;
     }
+
     #header .hBox {
         margin: 0;
         padding: 0 10px;
     }
+
     #header .logo img {
         width: 130%;
     }
+
     #header .hIm02 a, 
     #header .hIm02 a img {
         width: 80%;
@@ -750,43 +669,50 @@ ul li {
         display: flex;
         justify-content: flex-end;
     }
+
     #container2 {
         padding-top: 3px;
     }
+
     #conts h2 img {
         width: 345px;
     }
+
     #conts .linkUl li span, 
     #conts .linkUl li a {
         font-size: 14px;
         padding: 0;
     }
+
     #conts .linkUl li a {
         height: 37px;
     }
+
     .link-download-app h3 {
         font-size: 16px;
     }
-    .link-download-app::before {
-        height: 700%;
-    }
+
     .link-download-app .content {
         padding: 10px;
     }
+
     #main #conts {
         padding-top: 20px;
     }
+
     .box-btn-redirect {
         display: grid;
         align-items: center;
         grid-template-columns: auto auto;
     }
+
     #main-social {
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
         padding: 1px 0px;
     }
+
     .social-links-container {
         display: flex;
         flex-wrap: wrap;
@@ -795,6 +721,7 @@ ul li {
         padding: 0;
         margin: 0;
     }
+
     .social-item:nth-child(-n+3) {
         width: 25%;
         flex-basis: auto;
@@ -802,6 +729,7 @@ ul li {
         margin: 0 0 1px 0;
         border-width: 0;
     }
+
     .social-item:nth-child(n+4) {
         width: 25%;
         flex-basis: auto;
@@ -809,23 +737,24 @@ ul li {
         margin: 0 0 5px 0;
         border-width: 0;
     }
+
     .social-item img {
         width: 10px;
         height: 10px;
         margin-bottom: 2px;
     }
+
     .social-item span {
         font-size: 5px;
         white-space: wrap;
         overflow: visible;
         text-overflow: initial;
     }
+
     .social-item a {
         padding: 0;
     }
-    #footer {
-        bottom: 0;
-    }
+
     #footer p {
         font-size: 16px;
     }
