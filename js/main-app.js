@@ -21,12 +21,12 @@ var app = new Vue({
       giftcodeUrl: "https://79kingcode.pages.dev/"
     },
     banners: [
-      "/images/banner/1.jpg",
-      "/images/banner/2.jpg",
-      "/images/banner/3.jpg",
-      "/images/banner/4.jpg",
-      "/images/banner/5.jpg",
-      "/images/banner/6.jpg"
+      "/images/banner/1.webp",
+      "/images/banner/2.webp",
+      "/images/banner/3.webp",
+      "/images/banner/4.webp",
+      "/images/banner/5.webp",
+      "/images/banner/6.webp"
     ],
     apiUrl: "https://linksbackend.nnt79g.workers.dev/api/config?site_id=79king"
   },
