@@ -88,24 +88,34 @@
         <!-- CAROUSEL MOBILE (1 hình / slide) -->
         <div class="sjbdmap">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner" v-if="banners.length > 0">
-                    <div class="carousel-item active">
+                <div class="carousel-inner">
+
+                    <div class="carousel-item active" v-if="!banners || banners.length === 0">
                         <img src="/images/banner/1.webp" 
                              width="800" height="400" 
-                            fetchpriority="high" 
+                             fetchpriority="high" 
                              loading="eager" 
-                            decoding="sync"
-                            class="d-block w-100" 
-                            style="width: 100%; height: auto; aspect-ratio: 2 / 1;" 
+                             decoding="sync"
+                             class="d-block w-100" 
+                             style="width: 100%; height: auto; aspect-ratio: 2 / 1;" 
                              alt="Banner 79King">
                     </div>
+
                     <div 
                         v-for="(img, idx) in banners" 
                         :key="idx" 
                         :class="['carousel-item', { active: idx === 0 }]"
                     >
-                        <img :src="img" width="800" height="400" :fetchpriority="idx === 0 ? 'high' : 'auto'" :loading="idx === 0 ? 'eager' : 'lazy'" style="width: 100%; height: auto; aspect-ratio: 2 / 1;" alt="Banner 79King">
+                        <img :src="img" 
+                             width="800" height="400" 
+                             :fetchpriority="idx === 0 ? 'high' : 'auto'" 
+                             :loading="idx === 0 ? 'eager' : 'lazy'" 
+                             :decoding="idx === 0 ? 'sync' : 'async'"
+                             class="d-block w-100" 
+                             style="width: 100%; height: auto; aspect-ratio: 2 / 1;" 
+                             alt="Banner 79King">
                     </div>
+
                 </div>
             </div>
         </div>
