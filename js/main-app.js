@@ -4,8 +4,20 @@ var app = new Vue({
     timeHanlde: null,
     tim: 0,
     masterUrls: [],
-    urls: [],
-    moburls: [],
+    urls: [
+            { second: '0.0s', title: 'Đang tải ...', url: '#' },
+            { second: '0.0s', title: 'Đang tải ...', url: '#' },
+            { second: '0.0s', title: 'Đang tải ...', url: '#' },
+            { second: '0.0s', title: 'Đang tải ...', url: '#' },
+            { second: '0.0s', title: 'Đang tải ...', url: '#' }
+        ],
+    moburls: [[
+            { second: '0.0s', title: 'Đang tải ...', url: '#' },
+            { second: '0.0s', title: 'Đang tải ...', url: '#' },
+            { second: '0.0s', title: 'Đang tải ...', url: '#' },
+            { second: '0.0s', title: 'Đang tải ...', url: '#' },
+            { second: '0.0s', title: 'Đang tải ...', url: '#' }
+        ],
     waitingText: "waiting",
     connectTimeout: "connect Timeout",
     connectFail: '3ms',
