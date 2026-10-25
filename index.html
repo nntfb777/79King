@@ -89,6 +89,16 @@
         <div class="sjbdmap">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner" v-if="banners.length > 0">
+                    <div class="carousel-item active">
+                        <img src="/images/banner/1.webp" 
+                             width="800" height="400" 
+                            fetchpriority="high" 
+                             loading="eager" 
+                            decoding="sync"
+                            class="d-block w-100" 
+                            style="width: 100%; height: auto; aspect-ratio: 2 / 1;" 
+                             alt="Banner 79King">
+                    </div>
                     <div 
                         v-for="(img, idx) in banners" 
                         :key="idx" 
