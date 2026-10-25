@@ -11,7 +11,7 @@ var app = new Vue({
             { second: '0.0s', title: 'Đang tải ...', url: '#' },
             { second: '0.0s', title: 'Đang tải ...', url: '#' }
         ],
-    moburls: [[
+    moburls: [
             { second: '0.0s', title: 'Đang tải ...', url: '#' },
             { second: '0.0s', title: 'Đang tải ...', url: '#' },
             { second: '0.0s', title: 'Đang tải ...', url: '#' },
