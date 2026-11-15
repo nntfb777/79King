@@ -1,0 +1,20 @@
+{
+  "@context": "https://agenticresourcediscovery.org/context/v1",
+  "identifier": "urn:air:79king.ai:catalog:main",
+  "displayName": "79King",
+  "type": "application/ai-catalog+json",
+  "entries": [
+    {
+      "identifier": "urn:air:79king.ai:agent:landing",
+      "displayName": "79King Official Landing Page",
+      "type": "application/agent-card+json",
+      "url": "https://79king.ai/",
+      "description": "Trang chủ cung cấp link truy cập tốc độ cao và hỗ trợ chính thức của 79King.",
+      "representativeQueries": [
+        "link vào 79king chính thức",
+        "tải app 79king",
+        "hỗ trợ cskh 79king"
+      ]
+    }
+  ]
+}
