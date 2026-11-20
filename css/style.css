@@ -1599,3 +1599,9 @@ ul li {
 @media (max-width: 767.98px) {
     .faq-footer-list { grid-template-columns: 1fr; }
 }
+
+.quick-faq-title,
+.faq-footer-heading {
+    margin-top: 22px !important;
+    margin-bottom: 8px !important;
+}
