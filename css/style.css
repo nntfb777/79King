@@ -1569,3 +1569,33 @@ ul li {
     }
 }
 
+/* Ép lại cỡ chữ: Tiêu đề > Câu hỏi > Nội dung trả lời */
+.faq-footer-heading {
+    font-size: 14.5px !important;
+    font-weight: 700 !important;
+    color: #5b232c !important;
+}
+
+.faq-footer-list summary {
+    position: relative;
+    padding-left: 18px !important;
+    font-size: 13.5px !important;
+    font-weight: 600 !important;
+    color: #264642 !important;
+}
+
+/* Ký hiệu mở ra ở đầu mỗi câu hỏi */
+.faq-footer-wrap { clear: both; padding: 10px 0 4px; text-align: left; }
+.faq-footer-heading { font-size: 14px !important; font-weight: 700 !important; color: #5b232c !important; margin: 0 0 6px !important; text-align: left !important; }
+.faq-footer-list { list-style: none !important; padding: 0 !important; margin: 0 !important; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px 18px; }
+.faq-footer-list li { background: transparent !important; border: none !important; border-bottom: 1px dotted rgba(103, 22, 35, 0.22) !important; text-align: left !important; }
+.faq-footer-list summary { display: list-item !important; position: static !important; text-align: left !important; cursor: pointer; padding: 5px 4px !important; font-size: 13px !important; font-weight: 600 !important; color: #264642 !important; }
+.faq-footer-list summary::before { content: none !important; }
+.faq-footer-list summary:hover { color: #5b232c !important; }
+.faq-footer-list details > p { font-size: 12px !important; font-weight: 400 !important; line-height: 1.45 !important; color: #3a4c4b !important; padding: 3px 4px 7px 14px !important; margin: 0 !important; text-align: left !important; }
+.faq-footer-list details > p strong,
+.faq-footer-list details > p a { font-size: 12px !important; display: inline !important; color: #7a1c1d; font-weight: 600; text-decoration: underline; }
+
+@media (max-width: 767.98px) {
+    .faq-footer-list { grid-template-columns: 1fr; }
+}
