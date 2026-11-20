@@ -1478,3 +1478,94 @@ ul li {
         font-size: 14px !important;
     }
 }
+
+/* =========================================================
+   KHỐI GIẢI ĐÁP NHANH DƯỚI KẾT NỐI MẠNG XÃ HỘI
+   ========================================================= */
+.quick-faq-box {
+    margin-top: 20px;
+    padding: 16px 18px;
+    background-color: rgba(255, 255, 255, 0.35);
+    border: 1px solid #671623;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.quick-faq-title {
+    margin: 0 0 12px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #671623;
+    line-height: 1.4;
+}
+
+.quick-faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.quick-faq-item {
+    background-color: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(103, 22, 35, 0.35);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.quick-faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 10px 14px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #671623;
+    line-height: 1.45;
+    user-select: none;
+}
+
+.quick-faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.quick-faq-item summary:hover {
+    color: #ed1b1c;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.quick-faq-answer {
+    padding: 10px 14px 12px;
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: #1f1f1f;
+    border-top: 1px dashed rgba(103, 22, 35, 0.25);
+}
+
+.quick-faq-answer a {
+    display: inline;
+    color: #ed1b1c;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 767.98px) {
+    .quick-faq-box {
+        margin-top: 16px;
+        padding: 14px 12px;
+    }
+
+    .quick-faq-title {
+        font-size: 17px;
+    }
+
+    .quick-faq-item summary {
+        font-size: 15px;
+        padding: 11px 12px;
+    }
+
+    .quick-faq-answer {
+        font-size: 15px;
+        line-height: 1.7;
+        padding: 10px 12px 12px;
+    }
+}
+
