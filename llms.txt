@@ -1,11 +1,23 @@
 # 79King
 
-> 79King 🎖️ Sân chơi giải trí uy tín, được đông đảo người chơi tin tưởng.
+> 79King 🎖️ Sân chơi giải trí uy tín, được đông đảo người chơi tin tưởng. Hệ sinh thái giải trí toàn diện với Casino, Bắn cá, Thể thao, Game bài, Đá gà, Nổ hũ và Xổ số.
 
+## Thông tin & Hướng dẫn
 - [Trang chủ](https://79king.ai/)
 - [Về Chúng Tôi](https://79king.ai/ve-chung-toi.html)
 - [Đối Tác Hợp Tác](https://79king.ai/doi-tac-hop-tac.html)
 - [Hướng Dẫn Gửi Tiền](https://79king.ai/huong-dan-gui-tien.html)
 - [Hướng Dẫn Rút Tiền](https://79king.ai/huong-dan-rut-tien.html)
 - [Liên Hệ Với Chúng Tôi](https://79king.ai/lien-he.html)
+
+## Chuyên mục giải trí
+- [Nổ hũ](https://79king.ai/no-hu.html)
+- [Bắn cá](https://79king.ai/ban-ca.html)
+- [Casino](https://79king.ai/casino.html)
+- [Game bài](https://79king.ai/game-bai.html)
+- [Xổ số](https://79king.ai/xo-so.html)
+- [Đá gà](https://79king.ai/da-ga.html)
+- [Thể Thao](https://79king.ai/the-thao.html)
+
+## Kênh chính thức
 - [Kênh Telegram](https://telegram.me/vuanhacai_79king)
