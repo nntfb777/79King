@@ -9,11 +9,37 @@
       "displayName": "79King Official Landing Page",
       "type": "application/agent-card+json",
       "url": "https://79king.ai/",
-      "description": "Trang chủ cung cấp link truy cập tốc độ cao và hỗ trợ chính thức của 79King.",
+      "description": "Trang chủ cung cấp link truy cập tốc độ cao, tải app và hỗ trợ chính thức của 79King.",
       "representativeQueries": [
         "link vào 79king chính thức",
         "tải app 79king",
         "hỗ trợ cskh 79king"
+      ]
+    },
+    {
+      "identifier": "urn:air:79king.ai:categories:main",
+      "displayName": "79King Game Categories",
+      "type": "application/agent-card+json",
+      "url": "https://79king.ai/chuyen-muc/no-hu.html",
+      "description": "Các chuyên mục giải trí tại 79King gồm Nổ hũ, Bắn cá, Casino, Game bài, Xổ số, Đá gà và Thể thao.",
+      "representativeQueries": [
+        "nổ hũ 79king",
+        "bắn cá 79king",
+        "casino 79king",
+        "thể thao 79king"
+      ]
+    },
+    {
+      "identifier": "urn:air:79king.ai:support:guides",
+      "displayName": "79King Support & Guides",
+      "type": "application/agent-card+json",
+      "url": "https://79king.ai/ho-tro/huong-dan.html",
+      "description": "Hướng dẫn đăng ký, đăng nhập, nạp rút tiền, chính sách hoàn trả và kênh liên hệ hỗ trợ hội viên 79King.",
+      "representativeQueries": [
+        "hướng dẫn gửi tiền 79king",
+        "hướng dẫn rút tiền 79king",
+        "đăng ký đăng nhập 79king",
+        "liên hệ hỗ trợ 79king"
       ]
     }
   ]

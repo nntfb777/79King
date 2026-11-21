@@ -1,23 +1,49 @@
 # 79King
 
-> 79King 🎖️ Sân chơi giải trí uy tín, được đông đảo người chơi tin tưởng. Hệ sinh thái giải trí toàn diện với Casino, Bắn cá, Thể thao, Game bài, Đá gà, Nổ hũ và Xổ số.
+> 79King 🎖️ Sân chơi giải trí uy tín, được đông đảo người chơi tin tưởng. Hệ sinh thái giải trí toàn diện với Casino, Bắn cá, Thể thao, Game bài, Đá gà, Nổ hũ và Xổ số. Trang chủ cung cấp link truy cập tốc độ cao, tải app và hỗ trợ hội viên.
 
-## Thông tin & Hướng dẫn
+## Trang chính & Chuyên mục giải trí
 - [Trang chủ](https://79king.ai/)
-- [Về Chúng Tôi](https://79king.ai/ve-chung-toi.html)
-- [Đối Tác Hợp Tác](https://79king.ai/doi-tac-hop-tac.html)
-- [Hướng Dẫn Gửi Tiền](https://79king.ai/huong-dan-gui-tien.html)
-- [Hướng Dẫn Rút Tiền](https://79king.ai/huong-dan-rut-tien.html)
-- [Liên Hệ Với Chúng Tôi](https://79king.ai/lien-he.html)
+- [Nổ hũ](https://79king.ai/chuyen-muc/no-hu.html)
+- [Bắn cá](https://79king.ai/chuyen-muc/ban-ca.html)
+- [Casino](https://79king.ai/chuyen-muc/casino.html)
+- [Game bài](https://79king.ai/chuyen-muc/game-bai.html)
+- [Xổ số](https://79king.ai/chuyen-muc/xo-so.html)
+- [Đá gà](https://79king.ai/chuyen-muc/da-ga.html)
+- [Thể thao](https://79king.ai/chuyen-muc/the-thao.html)
 
-## Chuyên mục giải trí
-- [Nổ hũ](https://79king.ai/no-hu.html)
-- [Bắn cá](https://79king.ai/ban-ca.html)
-- [Casino](https://79king.ai/casino.html)
-- [Game bài](https://79king.ai/game-bai.html)
-- [Xổ số](https://79king.ai/xo-so.html)
-- [Đá gà](https://79king.ai/da-ga.html)
-- [Thể Thao](https://79king.ai/the-thao.html)
+## Hướng dẫn & Hỗ trợ
+- [Hướng dẫn](https://79king.ai/ho-tro/huong-dan.html)
+- [Tin tức](https://79king.ai/ho-tro/tin-tuc.html)
+- [Về Chúng Tôi](https://79king.ai/ho-tro/ve-chung-toi.html)
+- [Đối Tác Hợp Tác](https://79king.ai/ho-tro/doi-tac-hop-tac.html)
+- [Hướng Dẫn Gửi Tiền](https://79king.ai/ho-tro/huong-dan-gui-tien.html)
+- [Hướng Dẫn Rút Tiền](https://79king.ai/ho-tro/huong-dan-rut-tien.html)
+- [Liên Hệ Với Chúng Tôi](https://79king.ai/ho-tro/lien-he.html)
+- [79King Đăng Nhập](https://79king.ai/ho-tro/79king-dang-nhap.html)
+- [Đăng Ký 79King](https://79king.ai/ho-tro/dang-ky-79king.html)
+- [79King Có An Toàn Không](https://79king.ai/ho-tro/79king-co-an-toan-khong.html)
+- [Chính Sách Hoàn Trả 79King](https://79king.ai/ho-tro/chinh-sach-hoan-tra-79king.html)
+- [Khắc Phục Lỗi Không Đăng Nhập Được](https://79king.ai/ho-tro/cach-khac-phuc-loi-khong-dang-nhap-duoc-79king.html)
+- [Khắc Phục Tài Khoản Bị Khóa](https://79king.ai/ho-tro/cach-khac-phuc-tai-khoan-79king-bi-khoa.html)
+- [Cơ Chế Hoạt Động Tool Hack](https://79king.ai/ho-tro/co-che-hoat-dong-tool-hack-79king.html)
+- [Hướng Dẫn Cách Xóa Tài Khoản](https://79king.ai/ho-tro/huong-dan-cach-xoa-tai-khoan-79king.html)
 
-## Kênh chính thức
+## Bài viết tiêu biểu
+- [Bắn Cá Long Vương 79King](https://79king.ai/ban-ca/ban-ca-long-vuong-79king.html)
+- [Bắn Cá Vàng 79King](https://79king.ai/ban-ca/ban-ca-vang-79king.html)
+- [Mẹo Bắn Cá Đổi Thưởng 79King](https://79king.ai/ban-ca/meo-ban-ca-doi-thuong-79king.html)
+- [Baccarat AE Sexy 79King](https://79king.ai/casino/baccarat-ae-sexy-79king.html)
+- [DG Casino 79King](https://79king.ai/casino/dg-casino-79king.html)
+- [Hướng Dẫn Chơi Sicbo 79King](https://79king.ai/casino/huong-dan-choi-sicbo-79king.html)
+- [WM Casino 79King](https://79king.ai/casino/wm-casino-79king.html)
+- [Nổ Hũ 88 79King](https://79king.ai/no-hu/no-hu-88-79king.html)
+- [Nổ Hũ Là Như Thế Nào](https://79king.ai/no-hu/no-hu-la-nhu-the-nao.html)
+- [Sảnh Nổ Hũ FC 79King](https://79king.ai/no-hu/sanh-no-hu-fc-79king.html)
+- [Sảnh Nổ Hũ JILI 79King](https://79king.ai/no-hu/sanh-no-hu-jili-79king.html)
+- [Sảnh Nổ Hũ PG 79King](https://79king.ai/no-hu/sanh-no-hu-pg-79king.html)
+
+## Tài nguyên & Kênh chính thức
+- [Sơ đồ trang web (sitemap.xml)](https://79king.ai/sitemap.xml)
+- [Danh mục AI (ai-catalog.json)](https://79king.ai/ai-catalog.json)
 - [Kênh Telegram](https://telegram.me/vuanhacai_79king)
