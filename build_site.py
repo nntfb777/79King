@@ -48,7 +48,7 @@ FOOTER_HTML = """<div id="footer">
                             <p class="after-about-text">Giấy phép quốc tế: Giấy phép Pagcor (Philippines)</p>
                             <p class="after-about-text">Giấy phép Isle Of Man (Đảo Man) và giấy phép Curacao eGaming (Curacao)</p>
                             <p class="after-about-text after-about-tags">#79king #nhacai79king #code79king</p>
-                            <p class="after-about-bg-match"><a href="sitemap.xml">Sơ đồ trang web</a></p>
+                            <p class="after-about-bg-match"><a href="/sitemap.xml">Sơ đồ trang web</a></p>
                             <p class="after-about-bg-match">By: 79king.ai</p>
                         </div>
                     </div>
