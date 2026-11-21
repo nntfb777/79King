@@ -1605,3 +1605,69 @@ ul li {
     margin-top: 22px !important;
     margin-bottom: 8px !important;
 }
+
+.after-about-extra {
+    clear: both;
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px dotted rgba(103, 22, 35, 0.25);
+    text-align: left;
+}
+.after-about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 24px;
+}
+.after-about-title {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: #5b232c !important;
+    margin: 0 0 6px !important;
+    text-transform: uppercase;
+}
+.after-about-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.after-about-list li {
+    margin: 0 0 3px !important;
+}
+.after-about-list a {
+    display: inline !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    color: #264642 !important;
+    text-decoration: none;
+}
+.after-about-list a:hover {
+    color: #5b232c !important;
+    text-decoration: underline;
+}
+.after-about-text {
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+    color: #3a4c4b !important;
+    margin: 0 0 4px !important;
+}
+.after-about-tags {
+    font-size: 11.5px !important;
+    color: #4a5c5b !important;
+}
+/* 2 dòng cuối trùng màu nền */
+.after-about-bg-match,
+.after-about-bg-match a {
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+    margin: 2px 0 0 !important;
+    color: #86c8c9 !important;
+    background: transparent !important;
+    text-decoration: none !important;
+    pointer-events: auto !important;
+}
+
+@media (max-width: 767.98px) {
+    .after-about-grid {
+        grid-template-columns: 1fr;
+    }
+}
