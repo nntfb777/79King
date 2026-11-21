@@ -123,11 +123,11 @@
                     <div id="conts">
                         <h2><img src="/images/index/Link truy cập tốc độ cao.webp" width="420" height="60" alt="Trang chủ chính thức tốc độ cao"></h2>
                         <ul class="linkUl">
-                            <li class="li02" v-for="(item,index) in urls" :key="index">
-                                <span class="txt">{{item.second}}</span>
+                            <li class="li02" v-for="(item,index) in urls" :key="index" v-if="item">
+                                <span class="txt">{{item.second|| '9ms'}}</span>
                                 <img src="/images/index/index-icon.png" alt="Link 79king">
-                                <span class="web">{{item.title}}</span>
-                                <a :href="item.url" target="_blank">Truy cập</a>
+                                <span class="web">{{item.title|| '79King.ai'}}</span>
+                                <a :href="item.url||'#'" target="_blank" rel="noopener">Truy cập</a>
                             </li>
                         </ul>
                         <div class="refresh pcbdmap">
@@ -158,46 +158,6 @@
                                         <img src="/images/index/TẢI-APP-CHO-DI-ĐỘNG-2.webp" width="590" height="101" style="width: 100%; height: auto;" alt="Tải App 79King">
                                     </a>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="container2">
-            <div id="main">
-                <div class="wrap clearfix">
-                    <div id="conts">
-                        <h2><img src="/images/index/Link truy cập tốc độ cao.webp" width="420" height="60" alt="Trang chủ chính thức tốc độ cao"></h2>
-                        <ul class="linkUl">
-                            <li class="li02" v-for="(item,index) in moburls" :key="index">
-                                <span class="txt">{{item.second}}</span>
-                                <img src="/images/index/index-icon.png" alt="Link chính thức tốc độ cao">
-                                <span class="web">{{item.title}}</span>
-                                <a :href="item.url" target="_blank">Truy cập</a>
-                            </li>
-                        </ul>
-
-                        <div class="refresh pcbdmap">
-                            <a @click="refresh">TẢI LẠI</a>
-                        </div>
-                        <nav class="category-seo-links" aria-label="Chuyên mục trò chơi 79King">
-                            <ul>
-                                <li><a href="/chuyen-muc/no-hu.html" title="Nổ hũ 79King">Nổ hũ</a></li>
-                                <li><a href="/chuyen-muc/ban-ca.html" title="Bắn cá 79King">Bắn cá</a></li>
-                                <li><a href="/chuyen-muc/casino.html" title="Casino 79King">Casino</a></li>
-                                <li><a href="/chuyen-muc/game-bai.html" title="Game bài 79King">Game bài</a></li>
-                                <li><a href="/chuyen-muc/xo-so.html" title="Xổ số 79King">Xổ số</a></li>
-                                <li><a href="/chuyen-muc/da-ga.html" title="Đá gà 79King">Đá gà</a></li>
-                                <li><a href="/chuyen-muc/the-thao.html" title="Thể Thao 79King">Thể Thao</a></li>
-                            </ul>
-                        </nav>
-                        <div class="link-download-app">
-                            <div class="content">
-                                <a :href="apkAppUrl || 'https://79k09.club/DownloadApp/'" target="_blank">
-                                    <img src="/images/index/TẢI-APP-CHO-DI-ĐỘNG-2.webp" width="590" height="101" style="width: 100%; height: auto;" alt="Tải App 79King">
-                                </a>
                             </div>
                         </div>
                     </div>

@@ -21,7 +21,7 @@ body {
 
 html,
 body {
-	height: 100vh;
+	min-height: 100vh;
 	margin: 0;
 }
 
@@ -265,7 +265,7 @@ ul li {
 }
 
 #main #conts .refresh a {
-	color: #f4f45a	;
+	color: #f4f45a;
 	font-size: 17px;
 	line-height: 38px;
 	text-align: center;
@@ -493,9 +493,7 @@ ul li {
 		overflow-x: hidden;
 	}
 
-	#container,
-	#container2,
-	#containerlow {
+	#container{
 		width: 100%;
 		padding-left: 10px;
 		padding-right: 10px;
@@ -582,6 +580,7 @@ ul li {
 	}
 	.sjbdmap {
 		display: block !important;
+        order: 2;
 		margin-bottom: 5px;
 	}
 
@@ -612,9 +611,22 @@ ul li {
         justify-content: flex-end;
 	}
 
-	#container2 {
-		padding-top: 3px;
-	}
+    #container {
+        display: block !important;
+        order: 3;
+    }
+
+    #containerlow {
+        display: none !important;
+    }
+
+    #container-social {
+        order: 4;
+    }
+
+    #footer {
+        order: 5;
+    }
 
 	#conts h2 img {
 		width: 345px;
