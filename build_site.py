@@ -16,6 +16,7 @@ EXCLUDE_FROM_SITEMAP = {
 }
 
 # Khối footer chuẩn dùng chung cho toàn bộ trang HTML
+# Mỗi lần chỉnh sửa mẫu này và chạy `python build_site.py --apply`, toàn bộ file sẽ cập nhật theo.
 FOOTER_HTML = """<div id="footer">
             <div class="fBox">
                 <nav class="footer-seo-links" aria-label="Liên kết hữu ích">
@@ -53,10 +54,9 @@ FOOTER_HTML = """<div id="footer">
                         </div>
                     </div>
                 </section>
- 
-                <div class="fImg">
-                </div>
-                <p>Copyright © 79KING.COM Reserved</p>
+
+                <div class="fImg"></div>
+                <p>Copyright © 79KING.AI Reserved</p>
             </div>
         </div>"""
 
@@ -101,21 +101,83 @@ def format_path(target_root_url: str, current_file: Path, root: Path, mode: str)
     return compute_relative_href(current_file, target_root_url, root)
 
 
+def remove_existing_footers(html: str) -> str:
+    """
+    Gỡ sạch mọi khối <div id="footer">...</div> (đếm đúng độ sâu thẻ <div> lồng nhau)
+    và thẻ <footer>...</footer> cũ để không bao giờ bị trùng 2 footer.
+    """
+    # 1. Xóa thẻ <footer>...</footer> nếu có
+    html = re.sub(r"<footer\b[^>]*>.*?</footer>", "", html, flags=re.IGNORECASE | re.DOTALL)
+
+    # 2. Xóa các khối <div id="footer"...>...</div> theo độ sâu thẻ <div>
+    start_pat = re.compile(r'<div\b[^>]*\bid=["\']footer["\'][^>]*>', re.IGNORECASE)
+    div_open_pat = re.compile(r"<div\b[^>]*>", re.IGNORECASE)
+    div_close_pat = re.compile(r"</div\s*>", re.IGNORECASE)
+
+    while True:
+        m = start_pat.search(html)
+        if not m:
+            break
+
+        depth = 1
+        pos = m.end()
+        end_idx = None
+
+        tokens = sorted(
+            [(t.start(), t.end(), "open") for t in div_open_pat.finditer(html, pos)]
+            + [(t.start(), t.end(), "close") for t in div_close_pat.finditer(html, pos)],
+            key=lambda x: x[0],
+        )
+
+        for t_start, t_end, kind in tokens:
+            if kind == "open":
+                depth += 1
+            else:
+                depth -= 1
+                if depth == 0:
+                    end_idx = t_end
+                    break
+
+        if end_idx is None:
+            body_m = re.search(r"</body>", html[m.start() :], re.IGNORECASE)
+            end_idx = m.start() + body_m.start() if body_m else len(html)
+
+        html = html[: m.start()] + html[end_idx:]
+
+    return html
+
+
 def sync_footer_block(html: str) -> tuple[str, bool]:
-    pattern = re.compile(r"<footer\b[^>]*>.*?</footer>", re.IGNORECASE | re.DOTALL)
-    if pattern.search(html):
-        updated = pattern.sub(FOOTER_HTML, html, count=1)
-        return updated, updated != html
-    if "</body>" in html.lower():
+    """
+    Xóa footer cũ (nếu có) và chèn bản FOOTER_HTML mới nhất ngay trước thẻ đóng </div> cuối cùng của #app
+    (hoặc ngay trước </body>).
+    """
+    cleaned = remove_existing_footers(html)
+    # Dọn bớt các comment footer cũ & dòng trống thừa
+    cleaned = re.sub(r"<!--\s*FOOTER ĐỒNG BỘ TRANG CHỦ\s*-->\s*", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\n{3,}", "\n\n", cleaned)
+
+    # Chèn trước thẻ đóng </div> cuối cùng trước </body> (chính là thẻ đóng của <div id="app">)
+    body_close_match = re.search(r"(\s*</div>\s*)(</body>)", cleaned, re.IGNORECASE)
+    if body_close_match:
+        insert_pos = body_close_match.start(1)
+        updated = (
+            cleaned[:insert_pos].rstrip()
+            + f"\n\n        <!-- FOOTER ĐỒNG BỘ TRANG CHỦ -->\n        {FOOTER_HTML}"
+            + cleaned[insert_pos:]
+        )
+    elif re.search(r"</body>", cleaned, re.IGNORECASE):
         updated = re.sub(
             r"</body>",
-            f"        {FOOTER_HTML}\n    </div>\n</body>",
-            html,
+            f"\n        {FOOTER_HTML}\n</body>",
+            cleaned,
             count=1,
             flags=re.IGNORECASE,
         )
-        return updated, updated != html
-    return html, False
+    else:
+        updated = cleaned.rstrip() + f"\n\n{FOOTER_HTML}\n"
+
+    return updated, updated != html
 
 
 def process_html_file(
@@ -128,13 +190,13 @@ def process_html_file(
     logs: list[str] = []
     html = file_path.read_text(encoding="utf-8")
     rel_posix = file_path.relative_to(root).as_posix()
-    expected_full_url = f"{BASE_URL}/{rel_posix}"
+    expected_full_url = f"{BASE_URL}/" if rel_posix == "index.html" else f"{BASE_URL}/{rel_posix}"
 
-    # 1. Đồng bộ footer nếu bật
+    # 1. Đồng bộ footer mới nhất từ mẫu FOOTER_HTML
     if sync_footer:
         html, footer_changed = sync_footer_block(html)
         if footer_changed:
-            logs.append("footer: đã đồng bộ khối <footer id=\"footer\">")
+            logs.append('footer: đã cập nhật theo mẫu <div id="footer"> mới nhất')
 
     # 2. Chuẩn hóa đường dẫn tài nguyên (css/, js/, images/)
     dirs_re = "|".join(re.escape(d) for d in ASSET_DIRS)
@@ -284,18 +346,17 @@ def main() -> None:
             if args.apply:
                 file_path.write_text(updated, encoding="utf-8")
 
-    sitemap_path = root / "sitemap.xml"
-    new_sitemap = generate_sitemap_xml(root, html_files)
-    old_sitemap = sitemap_path.read_text(encoding="utf-8") if sitemap_path.exists() else ""
-    sitemap_changed = new_sitemap != old_sitemap
-
-    if sitemap_changed:
-        tag = "[APPLY]" if args.apply else "[PREVIEW]"
-        print(f"\n{tag} sitemap.xml: cập nhật danh sách {len(html_files)} trang.")
-        if args.apply:
-            sitemap_path.write_text(new_sitemap, encoding="utf-8")
-    else:
-        print("\nsitemap.xml: đã đồng bộ.")
+    if not args.no_sitemap:
+        sitemap_path = root / "sitemap.xml"
+        new_sitemap = generate_sitemap_xml(root, html_files)
+        old_sitemap = sitemap_path.read_text(encoding="utf-8") if sitemap_path.exists() else ""
+        if new_sitemap != old_sitemap:
+            tag = "[APPLY]" if args.apply else "[PREVIEW]"
+            print(f"\n{tag} sitemap.xml: cập nhật danh sách {len(html_files)} trang.")
+            if args.apply:
+                sitemap_path.write_text(new_sitemap, encoding="utf-8")
+        else:
+            print("\nsitemap.xml: đã đồng bộ.")
 
     print(f"\nHoàn tất: {changed_html}/{len(html_files)} file HTML có thay đổi.")
     if not args.apply:
