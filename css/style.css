@@ -1348,80 +1348,142 @@ ul li {
   text-decoration: underline;
 }
 
+.after-about-extra .after-about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px 24px;
+  align-items: start;
+  text-align: left;
+}
+
+.after-about-extra .footer-col-info {
+  grid-column: auto;
+  padding-top: 0;
+  border-top: none;
+}
+
+.after-about-extra .after-about-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #5b232c;
+  margin: 0 0 6px;
+  text-transform: uppercase;
+}
+
+#footer .after-about-extra .after-about-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 12px;
+}
+
+#footer .after-about-extra .after-about-list li {
+  margin: 0;
+}
+
+#footer .after-about-extra .after-about-list a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #264642;
+  text-decoration: none;
+  padding: 3px 0;
+  border-bottom: 1px dotted rgba(103, 22, 35, 0.22);
+  transition:
+    color 0.15s ease,
+    padding-left 0.15s ease;
+}
+
+#footer .after-about-extra .after-about-list a::before {
+  content: "›";
+  color: #5b232c;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+}
+
+#footer .after-about-extra .after-about-list a:hover {
+  color: #5b232c;
+  padding-left: 3px;
+}
+
+#footer .after-about-extra .after-about-text {
+  font-size: 12px;
+  line-height: 1.55;
+  color: #3a4c4b;
+  margin: 0 0 6px;
+}
+
+#footer .after-about-extra .after-about-tags {
+  font-size: 11.5px;
+  color: #4a5c5b;
+}
+
+/* 2 dòng cuối trùng màu nền */
+#footer .after-about-extra .after-about-bg-match,
+#footer .after-about-extra .after-about-bg-match a {
+  font-size: 11px;
+  line-height: 1.35;
+  margin: 2px 0 0;
+  color: #86c8c9;
+  background: transparent;
+  text-decoration: none;
+  pointer-events: auto;
+}
+
 @media (max-width: 767.98px) {
   .faq-footer-list {
     grid-template-columns: 1fr;
+  }
+
+  .after-about-extra {
+    clear: both;
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px dotted rgba(103, 22, 35, 0.25);
+    text-align: left;
+  }
+
+  .after-about-extra .after-about-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 14px;
+  }
+
+  .after-about-extra .footer-col-info {
+    grid-column: 1 / -1;
+    padding-top: 8px;
+    border-top: 1px dotted rgba(103, 22, 35, 0.25);
+  }
+  #footer .after-about-extra .after-about-list {
+    grid-template-columns: 1fr;
+    gap: 2px;
   }
 }
 
 .quick-faq-title,
 .faq-footer-heading {
-  margin-top: 22px !important;
-  margin-bottom: 8px !important;
+  margin-top: 22px;
+  margin-bottom: 8px;
+}
+#footer .after-about-extra .footer-about-logo {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 8px;
 }
 
-.after-about-extra {
-  clear: both;
-  margin-top: 12px;
-  padding-top: 10px;
-  border-top: 1px dotted rgba(103, 22, 35, 0.25);
-  text-align: left;
-}
-.after-about-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px 24px;
-}
-.after-about-title {
-  font-size: 13px !important;
-  font-weight: 700 !important;
-  color: #5b232c !important;
-  margin: 0 0 6px !important;
-  text-transform: uppercase;
-}
-.after-about-list {
-  list-style: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-.after-about-list li {
-  margin: 0 0 3px !important;
-}
-.after-about-list a {
-  display: inline !important;
-  font-size: 12px !important;
-  font-weight: 500 !important;
-  color: #264642 !important;
-  text-decoration: none;
-}
-.after-about-list a:hover {
-  color: #5b232c !important;
-  text-decoration: underline;
-}
-.after-about-text {
-  font-size: 12px !important;
-  line-height: 1.45 !important;
-  color: #3a4c4b !important;
-  margin: 0 0 4px !important;
-}
-.after-about-tags {
-  font-size: 11.5px !important;
-  color: #4a5c5b !important;
-}
-/* 2 dòng cuối trùng màu nền */
-.after-about-bg-match,
-.after-about-bg-match a {
-  font-size: 11px !important;
-  line-height: 1.35 !important;
-  margin: 2px 0 0 !important;
-  color: #86c8c9 !important;
-  background: transparent !important;
-  text-decoration: none !important;
-  pointer-events: auto !important;
+#footer .after-about-extra .footer-about-logo img {
+  display: block;
+  width: 150px;
+  max-width: 100%;
+  height: auto;
 }
 
 @media (max-width: 767.98px) {
-  .after-about-grid {
-    grid-template-columns: 1fr;
+  #footer .after-about-extra .footer-about-logo img {
+    width: 120px;
   }
 }
