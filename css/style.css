@@ -1429,7 +1429,7 @@ ul li {
   font-size: 11px;
   line-height: 1.35;
   margin: 2px 0 0;
-  color: #86c8c9;
+  color: #106d6a;
   background: transparent;
   text-decoration: none;
   pointer-events: auto;
@@ -1486,4 +1486,16 @@ ul li {
   #footer .after-about-extra .footer-about-logo img {
     width: 120px;
   }
+}
+
+#footer .after-about-extra .after-about-text a {
+  display: inline;
+  color: #264642;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+#footer .after-about-extra .after-about-text a:hover {
+  color: #5b232c;
+  text-decoration: underline;
 }

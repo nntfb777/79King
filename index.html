@@ -11,7 +11,7 @@
     <link
       rel="shortcut icon"
       type="image/png"
-      href="https://79king.ai/images/index/favicon.png.png"
+      href="https://79king.ai/images/index/icon_192.png"
       sizes="192x192"
     />
     <link
@@ -60,10 +60,97 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "79king",
-        "alternateName": "79king.ai",
-        "url": "https://79king.ai/"
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://79king.ai/#organization",
+            "name": "79King",
+            "alternateName": "79king.ai",
+            "url": "https://79king.ai/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://79king.ai/images/index/logo.webp",
+              "width": 221,
+              "height": 81
+            },
+            "email": "admin@79king.ai",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "135 Nguyễn Huệ, Phường Bến Nghé, Quận 1",
+              "addressLocality": "TP. Hồ Chí Minh",
+              "addressCountry": "VN"
+            },
+            "sameAs": [
+              "https://telegram.me/vuanhacai_79king"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://79king.ai/#website",
+            "url": "https://79king.ai/",
+            "name": "79King",
+            "alternateName": "79king.ai",
+            "description": "Trang chủ cung cấp link đăng nhập, đăng ký, tải app và hỗ trợ chính thức của 79King.",
+            "inLanguage": "vi",
+            "publisher": {
+              "@id": "https://79king.ai/#organization"
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://79king.ai/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Độ tuổi tối thiểu để đăng ký 79King là bao nhiêu?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Hội viên cần đủ 18 tuổi trở lên và dùng thông tin chính chủ trùng khớp tài khoản ngân hàng."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Link đăng nhập 79King chính thức là gì?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Truy cập trực tiếp 79king.ai hoặc các liên kết dự phòng cập nhật trên trang chủ và ứng dụng 79King."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Quên mật khẩu 79King, xử lý sao cho nhanh?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Chọn Quên mật khẩu tại khung đăng nhập hoặc nhắn CSKH 24/7 để được hỗ trợ ngay."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Tạo nhiều tài khoản 79King có lợi gì không?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Không có lợi. Mỗi người chỉ nên dùng 01 tài khoản duy nhất để tránh bị hệ thống hạn chế khi đối soát."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Nạp tiền 79King có gì cần lưu ý?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Kiểm tra thông tin nhận tiền mới nhất mỗi lần nạp và tên ngân hàng trùng tên đăng ký."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Rút tiền 79King có mất thời gian không?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Xử lý nhanh khi đã chuyển quỹ về ví chính và hoàn thành đủ vòng cược yêu cầu."
+                }
+              }
+            ]
+          }
+        ]
       }
     </script>
     <link
@@ -433,7 +520,7 @@
                     src="/images/index/agent.webp"
                     width="112"
                     height="112"
-                    alt="Đăng nhập Đại Lý"
+                    alt="Chuyên viên Đại Lý"
                   />
                   <span>Chuyên viên Đại Lý</span>
                 </a>
@@ -441,13 +528,15 @@
 
               <div class="social-item">
                 <a :href="socialLinks.agentLoginUrl" target="_blank">
-                  <img src="/images/index/agent.webp" alt="Đăng nhập Đại Lý" />
+                  <img src="/images/index/agent.webp"
+                    width="112"
+                    height="112" 
+                    alt="Đăng nhập Đại Lý" />
                   <span>Đăng nhập Đại Lý</span>
                 </a>
               </div>
             </div>
 
-            <!-- ĐẶT NGAY TRÊN #footer -->
             <section class="faq-footer-wrap" aria-label="Giải đáp nhanh 79King">
               <div class="wrap clearfix">
                 <h2 class="faq-footer-heading">
@@ -541,108 +630,7 @@
       </div>
     </div>
 
-    <div id="footer">
-      <div class="fBox">
-        <nav class="footer-seo-links" aria-label="Liên kết hữu ích">
-          <ul>
-            <li>
-              <a href="/ho-tro/ve-chung-toi.html" title="Về Chúng Tôi - 79King"
-                >Về Chúng Tôi</a
-              >
-            </li>
-            <li>
-              <a
-                href="/ho-tro/doi-tac-hop-tac.html"
-                title="Đối Tác Hợp Tác 79King"
-                >Đối Tác Hợp Tác</a
-              >
-            </li>
-            <li>
-              <a
-                href="/ho-tro/huong-dan-gui-tien.html"
-                title="Hướng Dẫn Gửi Tiền 79King"
-                >Gửi Tiền Như Nào</a
-              >
-            </li>
-            <li>
-              <a
-                href="/ho-tro/huong-dan-rut-tien.html"
-                title="Hướng Dẫn Rút Tiền 79King"
-                >Rút Tiền Như Nào</a
-              >
-            </li>
-            <li>
-              <a
-                href="/ho-tro/lien-he.html"
-                title="Liên Hệ Với Chúng Tôi - 79King"
-                >Liên Hệ Với Chúng Tôi</a
-              >
-            </li>
-          </ul>
-        </nav>
-        <!-- ĐẶT NGAY DƯỚI KHỐI ABOUT US -->
-        <section
-          class="after-about-extra"
-          aria-label="Sản phẩm và thông tin 79King"
-        >
-          <div class="after-about-grid">
-            <div class="after-about-col footer-col-about">
-              <a
-                href="/index.html"
-                class="footer-about-logo"
-                title="Trang chủ 79King"
-              >
-                <img
-                  src="/images/index/logo.webp"
-                  width="160"
-                  height="59"
-                  alt="Logo 79King chính thức"
-                  loading="lazy"
-                />
-              </a>
-              <p class="after-about-text">
-                <strong>79king.ai</strong> là thương hiệu giải trí trực tuyến
-                đăng ký hợp pháp tại Costa Rica, tuân thủ hiệp ước cờ bạc quốc
-                tế và chứng nhận bảo mật GEOTRUST, mang đến hệ sinh thái Casino,
-                Nổ hũ, Thể thao, Bắn cá, Game bài, Đá gà, Xổ số minh bạch cùng
-                hỗ trợ 24/7.
-              </p>
-            </div>
-
-            <div class="after-about-col footer-col-products">
-              <h3 class="after-about-title">SẢN PHẨM 79KING</h3>
-              <ul class="after-about-list">
-                <li><a href="/chuyen-muc/casino.html">Casino 79King</a></li>
-                <li><a href="/chuyen-muc/no-hu.html">Nổ hũ 79King</a></li>
-                <li><a href="/chuyen-muc/the-thao.html">Thể thao 79King</a></li>
-                <li><a href="/chuyen-muc/ban-ca.html">Bắn Cá 79King</a></li>
-                <li><a href="/chuyen-muc/game-bai.html">Game bài 79King</a></li>
-                <li><a href="/chuyen-muc/da-ga.html">Đá gà 79King</a></li>
-                <li><a href="/chuyen-muc/xo-so.html">Xổ số 79King</a></li>
-              </ul>
-            </div>
-
-            <div class="after-about-col footer-col-info">
-              <h3 class="after-about-title">THÔNG TIN</h3>
-              <p class="after-about-text">
-                Địa chỉ: 135 Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí
-                Minh
-              </p>
-              <p class="after-about-text">
-                Email: <a href="mailto:admin@79king.ai">admin@79king.ai</a>
-              </p>
-              <p class="after-about-bg-match">
-                <a href="/sitemap.xml">Sơ đồ trang web</a>
-              </p>
-              <p class="after-about-bg-match">By: 79king.ai</p>
-            </div>
-          </div>
-        </section>
-
-        <div class="fImg"></div>
-        <p>Copyright © 79KING.AI Reserved</p>
-      </div>
-    </div>
+    
     <script src="/js/jquery.js" defer></script>
     <script
       src="/js/bootstrap.bundle.min.js"
@@ -650,5 +638,54 @@
       crossorigin="anonymous"
     ></script>
     <script src="/js/main-app.js"></script>
-  </body>
+  
+        
+        <div id="footer">
+    <div class="fBox">
+        <nav class="footer-seo-links" aria-label="Liên kết hữu ích">
+            <ul>
+                <li><a href="/ho-tro/ve-chung-toi.html" title="Về Chúng Tôi - 79King">Về Chúng Tôi</a></li>
+                <li><a href="/ho-tro/doi-tac-hop-tac.html" title="Đối Tác Hợp Tác 79King">Đối Tác Hợp Tác</a></li>
+                <li><a href="/ho-tro/huong-dan-gui-tien.html" title="Hướng Dẫn Gửi Tiền 79King">Gửi Tiền Như Nào</a></li>
+                <li><a href="/ho-tro/huong-dan-rut-tien.html" title="Hướng Dẫn Rút Tiền 79King">Rút Tiền Như Nào</a></li>
+                <li><a href="/ho-tro/lien-he.html" title="Liên Hệ Với Chúng Tôi - 79King">Liên Hệ Với Chúng Tôi</a></li>
+            </ul>
+        </nav>
+        <!-- ĐẶT NGAY DƯỚI KHỐI ABOUT US -->
+        <section class="after-about-extra" aria-label="Sản phẩm và thông tin 79King">
+            <div class="after-about-grid">
+                <div class="after-about-col footer-col-about">
+                    <a href="/index.html" class="footer-about-logo" title="Trang chủ 79King">
+                      <img src="/images/index/logo.webp" width="160" height="59" alt="Logo 79King chính thức" loading="lazy" />
+                    </a>
+                    <p class="after-about-text"><strong>79king.ai</strong> là thương hiệu giải trí trực tuyến đăng ký hợp pháp tại Costa Rica, tuân thủ hiệp ước cờ bạc quốc tế và chứng nhận bảo mật GEOTRUST, mang đến hệ sinh thái Casino, Nổ hũ, Thể thao, Bắn cá, Game bài, Đá gà, Xổ số minh bạch cùng hỗ trợ 24/7.</p>
+                </div>
+
+                <div class="after-about-col footer-col-products">
+                    <h3 class="after-about-title">SẢN PHẨM 79KING</h3>
+                    <ul class="after-about-list">
+                        <li><a href="/chuyen-muc/casino.html">Casino 79King</a></li>
+                        <li><a href="/chuyen-muc/no-hu.html">Nổ hũ 79King</a></li>
+                        <li><a href="/chuyen-muc/the-thao.html">Thể thao 79King</a></li>
+                        <li><a href="/chuyen-muc/ban-ca.html">Bắn Cá 79King</a></li>
+                        <li><a href="/chuyen-muc/game-bai.html">Game bài 79King</a></li>
+                        <li><a href="/chuyen-muc/da-ga.html">Đá gà 79King</a></li>
+                        <li><a href="/chuyen-muc/xo-so.html">Xổ số 79King</a></li>
+                    </ul>
+                </div>
+
+                <div class="after-about-col footer-col-info">
+                    <h3 class="after-about-title">THÔNG TIN</h3>
+                    <p class="after-about-text">Địa chỉ: 135 Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh</p>
+                    <p class="after-about-text">Email: <a href="mailto:admin@79king.ai">admin@79king.ai</a></p>
+                    <p class="after-about-text"><a href="/sitemap.xml">Sơ đồ trang web</a></p>
+                    <p class="after-about-bg-match">Thương hiệu: 79king.ai</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="fImg"></div>
+        <p>Copyright © 79KING.AI Reserved</p>
+    </div>
+</body>
 </html>

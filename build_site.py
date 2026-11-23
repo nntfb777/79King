@@ -55,8 +55,8 @@ FOOTER_HTML = """<div id="footer">
                     <h3 class="after-about-title">THÔNG TIN</h3>
                     <p class="after-about-text">Địa chỉ: 135 Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh</p>
                     <p class="after-about-text">Email: <a href="mailto:admin@79king.ai">admin@79king.ai</a></p>
-                    <p class="after-about-bg-match"><a href="/sitemap.xml">Sơ đồ trang web</a></p>
-                    <p class="after-about-bg-match">By: 79king.ai</p>
+                    <p class="after-about-text"><a href="/sitemap.xml">Sơ đồ trang web</a></p>
+                    <p class="after-about-bg-match">Thương hiệu: 79king.ai</p>
                 </div>
             </div>
         </section>
@@ -198,6 +198,12 @@ def process_html_file(
     expected_full_url = f"{BASE_URL}/" if rel_posix == "index.html" else f"{BASE_URL}/{rel_posix}"
 
     # 1. Đồng bộ footer mới nhất từ mẫu FOOTER_HTML
+    # 1.5 Chuẩn hóa đường dẫn favicon bị lặp đuôi .png.png
+    bad_favicon = "https://79king.ai/images/index/favicon.png.png"
+    good_favicon = "https://79king.ai/images/index/icon_192.png"
+    if bad_favicon in html:
+        html = html.replace(bad_favicon, good_favicon)
+        logs.append(f"favicon: {bad_favicon} -> {good_favicon}")
     if sync_footer:
         html, footer_changed = sync_footer_block(html)
         if footer_changed:
@@ -268,21 +274,41 @@ def process_html_file(
         r"""(<script\b[^>]*type\s*=\s*["']application/ld\+json["'][^>]*>)(.*?)(</script>)""",
         re.IGNORECASE | re.DOTALL,
     )
+    category_dirs = {"ban-ca", "casino", "da-ga", "game-bai", "no-hu", "the-thao", "xo-so"}
+
     for m in ld_pat.finditer(html):
         raw_block = m.group(2).strip()
         try:
             parsed = json.loads(raw_block)
         except json.JSONDecodeError:
             continue
+
         if isinstance(parsed, dict) and parsed.get("@type") == "BreadcrumbList":
             steps = parsed.get("itemListElement")
-            if isinstance(steps, list) and len(steps) >= 2 and isinstance(steps[-1], dict):
-                if steps[-1].get("item") != expected_full_url:
+            if isinstance(steps, list) and len(steps) >= 2:
+                bc_changed = False
+
+                if len(steps) >= 3 and isinstance(steps[1], dict):
+                    parent_dir = file_path.parent.name
+                    if parent_dir in category_dirs:
+                        expected_cat_url = f"{BASE_URL}/chuyen-muc/{parent_dir}.html"
+                        if steps[1].get("item") != expected_cat_url:
+                            old_cat = steps[1].get("item")
+                            steps[1]["item"] = expected_cat_url
+                            logs.append(f"breadcrumb[1]: {old_cat} -> {expected_cat_url}")
+                            bc_changed = True
+
+                if isinstance(steps[-1], dict) and steps[-1].get("item") != expected_full_url:
                     old_bc = steps[-1].get("item")
                     steps[-1]["item"] = expected_full_url
+                    logs.append(f"breadcrumb[-1]: {old_bc} -> {expected_full_url}")
+                    bc_changed = True
+
+                if bc_changed:
                     dumped = json.dumps(parsed, ensure_ascii=False, indent=8)
-                    html = html[: m.start(2)] + "\n" + dumped + "\n    " + html[m.end(2) :]
-                    logs.append(f"breadcrumb: {old_bc} -> {expected_full_url}")
+                    start_idx, end_idx = m.start(2), m.end(2)
+                    html = html[:start_idx] + "\n" + dumped + "\n    " + html[end_idx:]
+                    break
 
     return html, logs
 
