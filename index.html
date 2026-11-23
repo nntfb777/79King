@@ -80,9 +80,7 @@
               "addressLocality": "TP. Hồ Chí Minh",
               "addressCountry": "VN"
             },
-            "sameAs": [
-              "https://telegram.me/vuanhacai_79king"
-            ]
+            "sameAs": ["https://telegram.me/vuanhacai_79king"]
           },
           {
             "@type": "WebSite",
@@ -227,7 +225,11 @@
             </a>
           </div>
           <div class="hIm02">
-            <a href="https://urlvn.net/79king" :href="kefuUrl" target="_blank">
+            <a
+              href="https://urlvn.net/79king"
+              :href="kefuUrl || 'https://urlvn.net/79king'"
+              target="_blank"
+            >
               <img
                 src="/images/index/cskh.webp"
                 width="300"
@@ -528,10 +530,12 @@
 
               <div class="social-item">
                 <a :href="socialLinks.agentLoginUrl" target="_blank">
-                  <img src="/images/index/agent.webp"
+                  <img
+                    src="/images/index/agent.webp"
                     width="112"
-                    height="112" 
-                    alt="Đăng nhập Đại Lý" />
+                    height="112"
+                    alt="Đăng nhập Đại Lý"
+                  />
                   <span>Đăng nhập Đại Lý</span>
                 </a>
               </div>
@@ -630,7 +634,6 @@
       </div>
     </div>
 
-    
     <script src="/js/jquery.js" defer></script>
     <script
       src="/js/bootstrap.bundle.min.js"
@@ -638,15 +641,9 @@
       crossorigin="anonymous"
     ></script>
     <script src="/js/main-app.js"></script>
+
+    
   
-        
-        
-        
-
-        
-
-        
-
         
 <div id="footer">
     <div class="fBox">
@@ -687,7 +684,7 @@
                     <p class="after-about-text">Địa chỉ: 135 Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh</p>
                     <p class="after-about-text">Email: <a href="mailto:admin@79king.ai">admin@79king.ai</a></p>
                     <p class="after-about-text"><a href="/sitemap.xml">Sơ đồ trang web</a></p>
-                    <p class="after-about-bg-match">Thương hiệu: 79king.ai</p>
+                    <p class="after-about-text">Thương hiệu: 79king.ai</p>
                 </div>
             </div>
         </section>
