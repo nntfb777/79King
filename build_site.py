@@ -53,9 +53,8 @@ FOOTER_HTML = """<div id="footer">
 
                 <div class="after-about-col footer-col-info">
                     <h3 class="after-about-title">THÔNG TIN</h3>
-                    <p class="after-about-text">Đăng ký hợp pháp tại Costa Rica theo quy định giải trí trực tuyến</p>
-                    <p class="after-about-text">Chứng nhận bảo mật quốc tế GEOTRUST</p>
-                    <p class="after-about-text after-about-tags">#79king #nhacai79king #code79king</p>
+                    <p class="after-about-text">Địa chỉ: 135 Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh</p>
+                    <p class="after-about-text">Email: <a href="mailto:admin@79king.ai">admin@79king.ai</a></p>
                     <p class="after-about-bg-match"><a href="/sitemap.xml">Sơ đồ trang web</a></p>
                     <p class="after-about-bg-match">By: 79king.ai</p>
                 </div>
