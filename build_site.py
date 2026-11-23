@@ -17,7 +17,8 @@ EXCLUDE_FROM_SITEMAP = {
 
 # Khối footer chuẩn dùng chung cho toàn bộ trang HTML
 # Mỗi lần chỉnh sửa mẫu này và chạy `python build_site.py --apply`, toàn bộ file sẽ cập nhật theo.
-FOOTER_HTML = """<div id="footer">
+FOOTER_HTML = """
+<div id="footer">
     <div class="fBox">
         <nav class="footer-seo-links" aria-label="Liên kết hữu ích">
             <ul>
@@ -63,7 +64,8 @@ FOOTER_HTML = """<div id="footer">
 
         <div class="fImg"></div>
         <p>Copyright © 79KING.AI Reserved</p>
-    </div>"""
+    </div>
+</div>"""
 
 
 def collect_html_files(root: Path) -> list[Path]:
@@ -198,6 +200,34 @@ def process_html_file(
     expected_full_url = f"{BASE_URL}/" if rel_posix == "index.html" else f"{BASE_URL}/{rel_posix}"
 
     # 1. Đồng bộ footer mới nhất từ mẫu FOOTER_HTML
+    # 1.6 Chuẩn hóa link CSKH về https://urlvn.net/79king và đảm bảo có href mặc định
+    old_cskh = "https://telegram.me/CSKH24H79KING"
+    new_cskh = "https://urlvn.net/79king"
+    kefu_pat = re.compile(
+        r"""<a\b(?![^>]*(?<!:)\bhref\s*=)([^>]*:href\s*=\s*["']kefuUrl[^"']*["'][^>]*)>""",
+        re.IGNORECASE | re.DOTALL,
+    )
+    html, kefu_count = kefu_pat.subn(
+        rf'<a href="{new_cskh}"\1>',
+        html,
+    )
+    if kefu_count:
+        logs.append(f"cskh: thêm href mặc định {new_cskh} ({kefu_count})")
+    
+    if old_cskh in html:
+        html = html.replace(old_cskh, new_cskh)
+        logs.append(f"cskh: đổi {old_cskh} -> {new_cskh}")
+
+    kefu_pat = re.compile(
+        r"""<a\b(?![^>]*\bhref\s*=)([^>]*:href\s*=\s*["']kefuUrl[^"']*["'][^>]*)>""",
+        re.IGNORECASE,
+    )
+    html, kefu_count = kefu_pat.subn(
+        rf'<a href="{new_cskh}"\1>',
+        html,
+    )
+    if kefu_count:
+        logs.append(f"cskh: thêm href mặc định {new_cskh} ({kefu_count})")
     # 1.5 Chuẩn hóa đường dẫn favicon bị lặp đuôi .png.png
     bad_favicon = "https://79king.ai/images/index/favicon.png.png"
     good_favicon = "https://79king.ai/images/index/icon_192.png"
