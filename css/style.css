@@ -351,7 +351,7 @@ ul li {
 @media screen and (max-width: 767.98px) {
   /* Thứ tự hiển thị trên điện thoại: Header -> Banner -> Link tốc độ cao -> Social -> Footer */
   #header {
-    order: 1;
+    order: -1;
     padding: 5px 0;
   }
 
